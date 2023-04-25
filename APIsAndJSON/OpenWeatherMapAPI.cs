@@ -11,14 +11,17 @@ namespace APIsAndJSON
     internal class OpenWeatherMapAPI
     {
         private HttpClient _client;
+       
         public OpenWeatherMapAPI(HttpClient client) 
         {
             _client = client;
         }
         public void WeatherAPI()
         {
-            var key = "5302e772fde987fc993ab818fa1929a8";
             var city = "houston";
+
+            Console.WriteLine("Please enter a key:");
+            var key = Console.ReadLine();
 
             var weatherURL = $"http://api.openweathermap.org/data/2.5/forecast?q={city}&APPID={key}&units=imperial";
 

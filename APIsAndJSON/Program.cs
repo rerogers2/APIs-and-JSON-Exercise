@@ -7,14 +7,20 @@ namespace APIsAndJSON
         static void Main(string[] args)
         {
 
-            var client = new HttpClient();
-            var quote = new CreateQuote(client);
+            #region RonVSKanye
+            //var client = new HttpClient();
+            //var quote = new RonVSKanyeAPI(client);
 
-            for (var i = 0; i < 5; i++)
-            {
-                Console.WriteLine($"Kanye: {quote.KanyeQuote()}\n");
-                Console.WriteLine($"Ron Swanson: {quote.RonQuote()}\n");
-            }
+            //for (var i = 0; i < 5; i++)
+            //{
+            //    Console.WriteLine($"Kanye: {quote.KanyeQuote()}\n");
+            //    Console.WriteLine($"Ron Swanson: {quote.RonQuote()}\n");
+            //}
+            #endregion
+            var client = new HttpClient();
+            var weather = new OpenWeatherMapAPI(client);
+
+            weather.WeatherAPI();
         }
     }
 }

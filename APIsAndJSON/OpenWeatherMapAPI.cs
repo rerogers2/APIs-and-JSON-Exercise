@@ -16,6 +16,7 @@ namespace APIsAndJSON
         {
             _client = client;
         }
+
         public void WeatherAPI()
         {
             var city = "houston";
@@ -28,9 +29,9 @@ namespace APIsAndJSON
             var weatherResult = _client.GetStringAsync(weatherURL).Result;
 
             JObject formatResult = JObject.Parse(weatherResult);
-            var temp = formatResult["list"][0]["main"]["temp"];
-            var feels = formatResult["list"][0]["main"]["feels_like"];
-            var humidity = formatResult["list"][0]["main"]["humidity"];
+            var temp = formatResult["list"][2]["main"]["temp"];
+            var feels = formatResult["list"][2]["main"]["feels_like"];
+            var humidity = formatResult["list"][2]["main"]["humidity"];
             Console.WriteLine($"The current temperature in {char.ToUpper(city[0]) + city.Substring(1)}: {temp} degrees Fahrenheit.");
             Console.WriteLine($"There is a feels like temperature of: {feels} degrees Fahrenheit.");
             Console.WriteLine($"The current humidity is: {humidity} percent.");
